@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>1</id>
+      <name>lane-dat</name>
+      <owner><username>dathoangdev3-dev</username></owner>
+      <created>2026-09-26T10:00:00+07:00</created>
+      <dumped>2026-09-26T10:30:00+07:00</dumped>
+      <labels><label><name>lane_marking</name></label><label><name>image_context</name></label></labels>
+      <segments><segment><id>1</id><start>0</start><stop>5</stop><url>http://localhost:8080</url></segment></segments>
+    </task>
+  </meta>
+  <image id="0" name="bb890202-d9d48310.jpg" width="1280" height="720">
+    <polyline label="lane_marking" source="manual" occluded="0" points="100,500;500,480;900,460" z_order="0">
+      <attribute name="laneTypes">single white</attribute>
+      <attribute name="laneStyle">dashed</attribute>
+      <attribute name="laneDirection">forward</attribute>
+      <attribute name="visibility">clear</attribute>
+    </polyline>
+    <tag label="image_context" source="manual">
+      <attribute name="weather">clear</attribute>
+      <attribute name="timeofday">daytime</attribute>
+    </tag>
+  </image>
+  <image id="1" name="c1589305-200e315b.jpg" width="1280" height="720">
+    <tag label="image_context" source="manual">
+      <attribute name="weather">clear</attribute>
+      <attribute name="timeofday">daytime</attribute>
+    </tag>
+  </image>
+  <image id="2" name="c3cd6c82-b5d52beb.jpg" width="1280" height="720">
+    <tag label="image_context" source="manual">
+      <attribute name="weather">clear</attribute>
+      <attribute name="timeofday">daytime</attribute>
+    </tag>
+  </image>
+  <image id="3" name="b75f355e-b3f098b9.jpg" width="1280" height="720">
+    <tag label="image_context" source="manual">
+      <attribute name="weather">clear</attribute>
+      <attribute name="timeofday">daytime</attribute>
+    </tag>
+  </image>
+  <image id="4" name="c0f739d8-6ff93525.jpg" width="1280" height="720">
+    <tag label="image_context" source="manual">
+      <attribute name="weather">clear</attribute>
+      <attribute name="timeofday">daytime</attribute>
+    </tag>
+  </image>
+  <image id="5" name="c95fecc3-41401a5f.jpg" width="1280" height="720">
+    <tag label="image_context" source="manual">
+      <attribute name="weather">clear</attribute>
+      <attribute name="timeofday">daytime</attribute>
+    </tag>
+  </image>
+</annotations>

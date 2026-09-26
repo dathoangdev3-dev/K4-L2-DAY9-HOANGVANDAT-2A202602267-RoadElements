@@ -1,0 +1,11 @@
+task: lane
+sha256: 241f13ed4816af48f5a20395567eaefc9b57f15cca4b89f07fee2d692a590bbb
+code: 241F-13ED
+locked_at: 2026-09-26T10:59:48+07:00
+shapes: lane_marking=1
+cvat_owner: dathoangdev3-dev
+cvat_export: task 1 "lane-dat"
+cvat_created: 2026-09-26T10:00:00+07:00
+cvat_dumped: 2026-09-26T10:30:00+07:00
+shape_sources: manual=1
+relock_count: 0

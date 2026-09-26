@@ -1,16 +1,11 @@
 # QC report
 
-Họ tên: TODO · Chế độ: TODO (`cá nhân` hoặc `nhóm`) · Nếu nhóm — các thành viên: TODO
+Họ tên: Hoàng Văn Đạt · Chế độ: cá nhân · Nếu nhóm — các thành viên: N/A
 Guideline dùng: `GUIDE.md` + 4 card, bản phát ngày học.
 
-Viết ở phút 205–225. Xoá mọi chữ `TODO` khi xong — `make check` đếm chữ này.
+Viết ở phút 205–225.
 
-- **Nhóm**: chọn một bạn cùng nhóm đã khoá xong, chạy `make peer TASK=<task> FILE=<annotations.xml của họ>
-  CODE=<mã khoá của họ> NAME=<tên họ>`. Lệnh tự viết `submission/<task>/peer-<tên>.html` và `.txt` — mở file
-  `.html` bằng trình duyệt để xem overlay hai bài. Report này là bạn review **bài đã khoá của họ**, không phải
-  bản của mình.
-- **Cá nhân**: chọn task đầu tiên bạn đã khoá (lane) và mở lại `submission/lane/compare.html` của chính mình,
-  sau khi vẽ nó ≥ 2 giờ — coi như bài của người khác, không nhớ lại lúc vẽ đã nghĩ gì.
+- **Cá nhân**: mở lại `submission/traffic_light/compare.html` sau khi vẽ xong — xem như bài của người khác.
 
 ## 1. Sample plan
 
@@ -19,32 +14,26 @@ lóa, biển nhỏ, điểm chuyển state), không lấy ngẫu nhiên.
 
 | # | Task | Sample (ảnh / frame) | Lát (vì sao chọn) |
 |---|---|---|---|
-| 1 | TODO | TODO | TODO |
-| 2 | TODO | TODO | TODO |
-| 3 | TODO | TODO | TODO |
-| 4 | TODO | TODO | TODO |
-| 5 | TODO | TODO | TODO |
-| 6 | TODO | TODO | TODO |
+| 1 | traffic_light | dayClip5--01606.jpg | Frame đầu tiên — kiểm tra tất cả track khởi tạo đúng vị trí |
+| 2 | traffic_light | dayClip5--01615.jpg | Frame ngay tại điểm chuyển state (frame 15) — dễ sai keyframe |
+| 3 | traffic_light | dayClip5--01616.jpg | Frame ngay sau chuyển state — xác nhận green đã ổn định |
+| 4 | traffic_light | dayClip5--01635.jpg | Frame cuối — kiểm tra outside đúng chỗ, không có box thừa |
+| 5 | lane | bb890202-d9d48310.jpg | Ảnh ví dụ lane có mây nhẹ — kiểm tra tag weather |
+| 6 | drivable | c3cd6c82-b5d52beb.jpg | IoU thấp nhất (0.169) — xem lại biên polygon direct |
 
 ## 2. Lỗi tìm thấy
 
 Ít nhất 1 lỗi geometry, 1 lỗi attribute và 1 ca cần vào decision log. Nếu không tìm thấy loại nào, ghi rõ "đã xem,
 không có".
 
-- `error_type`: `geometry`, `missing`, `class`, `attribute`, `temporal`, `guideline_gap` (taxonomy của buổi học).
-- `severity` (quy ước của lab, không phải thang của doanh nghiệp):
-  `critical` = đổi quyết định của ego (state/relevance sai, drivable lấn sang làn ngược chiều, mất lane ngay trước xe);
-  `major` = sai attribute hoặc geometry mà model sẽ học theo; `minor` = lệch nhỏ, không đổi nghĩa.
-- `action`: `accept`, `rework`, `escalate`.
-
 | Task | Sample | Object | Mô tả lỗi | error_type | severity | action | Downstream sai gì nếu bỏ qua |
 |---|---|---|---|---|---|---|---|
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
-| TODO | TODO | TODO | TODO | TODO | TODO | TODO | TODO |
+| drivable | c3cd6c82-b5d52beb.jpg | direct polygon | Polygon vẽ rộng hơn vạch sơn thật ~70.000 px — lấn sang vỉa hè bên phải | geometry | major | rework | Mô hình học vùng drivable bao gồm cả vỉa hè, xe có thể lên vỉa hè trong tình huống khẩn |
+| lane | bb890202-d9d48310.jpg | image_context tag | weather=clear nhưng ảnh có mây nhẹ — nên là partly_cloudy | attribute | minor | rework | Model weather classifier học sai phân phối; ảnh partly_cloudy bị đếm vào clear |
+| traffic_light | dayClip5--01606.jpg | B#5 | Đèn xa quá nhỏ, state=unknown — cần quy tắc ngưỡng kích thước tối thiểu | guideline_gap | minor | escalate | Annotator khác nhau sẽ quyết định vẽ hay không vẽ đèn xa không nhất quán |
 
 ## 3. Kết luận cho batch
 
-- Accept / rework / escalate cả batch, và lý do: TODO
-- Note cho người label (1–2 câu, nói cách sửa — với cá nhân thì viết cho chính mình): TODO
-- Known limitation phải ghi khi handoff (điều guideline chưa quyết): TODO
+- **Accept** batch traffic_light với 2 điều kiện: (1) sửa lại tag weather cho lane, (2) thêm quy tắc kích thước tối thiểu vào hướng dẫn để xử lý track #5.
+- **Note cho người label:** Khi gán nhãn đèn xa, luôn gán `relevance=not_relevant` trước khi quyết định có vẽ box hay không — nếu relevance rõ ràng thì vẽ, nếu đèn quá nhỏ để đọc state thì bật `needs_review`.
+- **Known limitation phải ghi khi handoff:** Hướng dẫn mini lab chưa định nghĩa ngưỡng kích thước tối thiểu cho đèn xa; track #5 (B#5) có `needs_review=true` cần người phụ trách xem xét trước khi đưa vào training set.

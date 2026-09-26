@@ -1,1 +1,9 @@
 task,sample,object,difference,error_type,who_is_right,action,note
+lane,bb890202-d9d48310.jpg,R1-R6,bài mẫu có 6 polyline vạch kẻ đường nhưng bài làm chỉ vẽ 1 vạch chính — bỏ sót 5 vạch còn lại,missing,reference,rework,Stub bài lane chỉ vẽ 1 polyline minh hoạ; reference có đủ 6 vạch trên ảnh đầu tiên
+lane,bb890202-d9d48310.jpg,tag-weather,bài làm gắn weather=clear nhưng reference là partly cloudy,attribute,reference,rework,Ảnh có mây nhẹ — nên chọn partly cloudy theo bài mẫu
+drivable,c3cd6c82-b5d52beb.jpg,direct,IoU vùng direct chỉ 0.169 — bài làm vẽ vùng rộng hơn reference nhiều (70030 px thừa),geometry,reference,rework,Polygon stub không bám theo vạch sơn thật; reference BDD100K khoanh sát hơn
+drivable,c3cd6c82-b5d52beb.jpg,alternative,bài làm không vẽ vùng alternative (IoU 0.000) — thiếu cả một làn cùng chiều,missing,reference,rework,Stub không vẽ vùng alternative; ảnh thật có làn bên trái cùng chiều cần khoanh thêm
+traffic_sign,00073.png,R1-R6,bài làm thiếu 5-6 biển báo trên ảnh — reference GTSDB có nhiều biển nhỏ ở xa và ở mép ảnh,missing,reference,rework,Stub chỉ vẽ 1 box minh hoạ; cần quét kỹ mép ảnh và biển nhỏ phía xa
+traffic_sign,00206.png,R1-R5,bài làm thiếu 4-5 biển — reference có nhiều biển trên ảnh này,missing,reference,rework,Cần vẽ đủ tất cả biển kể cả biển gắn chung cột
+traffic_light,dayClip5--01606.jpg,B#3,bài làm vẽ thêm đèn xa không có trong reference LISA — LISA không gán nhãn đèn nhỏ ở ngã tư phía xa,guideline_gap,me,keep,Đèn xa vẫn nhìn thấy mặt ô đèn và có relevance=not_relevant rõ ràng; LISA bỏ qua nhưng hướng dẫn mini lab không cấm
+traffic_light,dayClip5--01606.jpg,B#4,bài làm vẽ thêm đèn xa thứ hai không có trong reference LISA,guideline_gap,me,keep,Tương tự B#3 — đèn nhỏ phía xa vẫn đánh dấu được với relevance=not_relevant; ghi vào light_log.md để theo dõi

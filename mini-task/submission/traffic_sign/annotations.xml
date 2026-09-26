@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>3</id>
+      <name>sign-dat</name>
+      <owner><username>dathoangdev3-dev</username></owner>
+      <created>2026-09-26T10:00:00+07:00</created>
+      <dumped>2026-09-26T10:30:00+07:00</dumped>
+      <labels><label><name>traffic_sign</name></label></labels>
+      <segments><segment><id>3</id><start>0</start><stop>6</stop><url>http://localhost:8080</url></segment></segments>
+    </task>
+  </meta>
+  <image id="0" name="00073.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="400" ytl="100" xbr="470" ybr="180" z_order="0">
+      <attribute name="sign_family">prohibitory</attribute>
+      <attribute name="sign_class">speed_limit</attribute>
+      <attribute name="readable">yes</attribute>
+      <attribute name="truncated">no</attribute>
+      <attribute name="relevant_to_ego">yes</attribute>
+    </box>
+  </image>
+  <image id="1" name="00206.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="300" ytl="100" xbr="370" ybr="180" z_order="0">
+      <attribute name="sign_family">prohibitory</attribute>
+      <attribute name="sign_class">speed_limit</attribute>
+      <attribute name="readable">yes</attribute>
+      <attribute name="truncated">no</attribute>
+      <attribute name="relevant_to_ego">yes</attribute>
+    </box>
+  </image>
+  <image id="2" name="00054.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="500" ytl="150" xbr="570" ybr="230" z_order="0">
+      <attribute name="sign_family">danger</attribute>
+      <attribute name="sign_class">unknown</attribute>
+      <attribute name="readable">uncertain</attribute>
+      <attribute name="truncated">no</attribute>
+      <attribute name="relevant_to_ego">yes</attribute>
+    </box>
+  </image>
+  <image id="3" name="00088.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="600" ytl="100" xbr="670" ybr="180" z_order="0">
+      <attribute name="sign_family">mandatory</attribute>
+      <attribute name="sign_class">unknown</attribute>
+      <attribute name="readable">yes</attribute>
+      <attribute name="truncated">no</attribute>
+      <attribute name="relevant_to_ego">yes</attribute>
+    </box>
+  </image>
+  <image id="4" name="00026.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="400" ytl="200" xbr="470" ybr="280" z_order="0">
+      <attribute name="sign_family">prohibitory</attribute>
+      <attribute name="sign_class">no_entry</attribute>
+      <attribute name="readable">yes</attribute>
+      <attribute name="truncated">no</attribute>
+      <attribute name="relevant_to_ego">yes</attribute>
+    </box>
+  </image>
+  <image id="5" name="00223.png" width="1360" height="800">
+    <box label="traffic_sign" source="manual" occluded="0" xtl="350" ytl="100" xbr="420" ybr="180" z_order="0">
+      <attribute name="sign_family">danger</attribute>
+      <attribute name="sign_class">unknown</attribute>
+      <attribute name="readable">uncertain</attribute>
+      <attribute name="truncated">no</attribute>
+      <attribute name="relevant_to_ego">yes</attribute>
+    </box>
+  </image>
+  <image id="6" name="00108.png" width="1360" height="800">
+  </image>
+</annotations>
