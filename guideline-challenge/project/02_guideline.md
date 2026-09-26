@@ -1,6 +1,6 @@
 # Annotation guideline — Đèn điều khiển ego: trạng thái + relevance tại giao lộ nhiều đầu đèn
 
-**Version:** v2
+**Version:** v3
 
 <!--
 v1 = bản nháp đầu. Sau calibration nâng lên v2 (freeze). Sau blind handoff nâng lên v3.
@@ -176,3 +176,12 @@ Attribute `state` để `mutable` chỉ nhằm tương thích nếu sau này chu
 7. **Box bóng phản chiếu trên capo hoặc mặt đường ướt.**
 8. **Chọn `state=red` chỉ vì đốm sáng trông đỏ/cam lúc chạng vạng.** Kiểm lại vị trí ô sáng trên vỏ trước khi chọn.
 9. **Để sót default `__undefined__`** ở `state` hoặc `relevance`. Trước khi Save, lọc các object còn attribute trống.
+
+## 11. Checklist trước khi export
+
+Rà từng ảnh trong task trước khi export:
+
+- Có đúng **1 tag `frame`** và `ego_signal` đã được chọn, kể cả ảnh không có box.
+- Mỗi box `traffic_light` đã có `state` và `relevance`; không còn giá trị `__undefined__`.
+- Đã áp dụng rule 5.3 cho từng đèn nhỏ/xa; chỉ giữ đèn dưới ngưỡng khi ảnh không có đầu đèn lớn hơn.
+- Đã lưu task sau khi rà soát.

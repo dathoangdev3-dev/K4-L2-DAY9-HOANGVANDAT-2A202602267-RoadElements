@@ -1,5 +1,7 @@
 # Day 9 Lab — Road Elements
 
+> **Nộp bài:** bắt đầu từ [TEAMMATES.md](TEAMMATES.md) để mở repo nhóm, bài challenge và mini lab của từng thành viên.
+
 Repo mẫu này chứa **hai bài lab Day 9 độc lập**. Đầu buổi Lab Coach báo lớp làm bài nào; bạn chỉ làm bài đó và để
 nguyên thư mục bài kia.
 
