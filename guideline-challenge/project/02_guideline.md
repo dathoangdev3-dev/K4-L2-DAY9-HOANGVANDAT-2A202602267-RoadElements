@@ -1,6 +1,6 @@
 # Annotation guideline — Đèn điều khiển ego: trạng thái + relevance tại giao lộ nhiều đầu đèn
 
-**Version:** v1
+**Version:** v2
 
 <!--
 v1 = bản nháp đầu. Sau calibration nâng lên v2 (freeze). Sau blind handoff nâng lên v3.
@@ -160,7 +160,8 @@ Attribute `state` để `mutable` chỉ nhằm tương thích nếu sau này chu
 | BDD11 | Chỉ thấy đèn đi bộ **bàn tay cam** bên phải ~(1200,255); không có đầu đèn xe nào quay về ego | 0 box `traffic_light`. Tag `frame [ego_signal=out_of_view]` | 5.1, bảng `frame` dòng 4 |
 | BDD04 | Phố, ban ngày, không có đèn tín hiệu hay đèn đi bộ | 0 box. Tag `frame [ego_signal=none]` | bảng `frame` dòng 5 |
 
-<!-- v2: thêm 2–3 dòng ví dụ từ ảnh calibration (BDD18, BDD25, LISA30…) theo kết luận calibration. -->
+| BDD25 | Chạng vạng, đường ướt. Hai đầu đèn xanh trên cùng cần vươn tại giao lộ đầu tiên ~(520,110) và ~(720,120); một đốm xanh nhỏ ở giao lộ sau ~(900,200) | `traffic_light [relevance=ego;state=green]` ×2 (cả hai đầu đèn trên cần vươn). Đốm xa: IGNORE (rule 1/3). Tag `frame [ego_signal=visible]` | 5.3, 5.4 — hai đầu đèn cùng cần vươn cùng pha đều là ego |
+| BDD18 | Ban đêm, chỉ thấy đốm sáng mờ không xác định được vỏ đèn; thấy cần vươn và cột đèn | 0 box `traffic_light`. Tag `frame [ego_signal=out_of_view]` — KHÔNG escalate vì không có box ego mang màu xung đột | 5.2, bảng frame dòng 4 — out_of_view trước khi xét escalate |
 
 ## 10. Common mistakes
 
