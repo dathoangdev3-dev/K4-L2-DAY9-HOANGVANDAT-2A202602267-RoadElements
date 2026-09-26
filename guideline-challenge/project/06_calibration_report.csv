@@ -1,1 +1,4 @@
 sample_id,item,values_by_annotator,diagnosis,action,rule_change
+BDD18,traffic_light count + frame.ego_signal,dat=1 box+escalate | quang=0 box+out_of_view,guideline_gap,revise_rule,Thêm rule rõ vào mục 7: khi ban đêm chỉ thấy đốm sáng mờ không xác định được đầu đèn — KHÔNG box; dùng out_of_view khi thấy phần cứng tín hiệu khác (cần vươn hoặc cột đèn) nhưng không thấy mặt ô đèn của ego
+BDD25,traffic_light relevance (đèn thứ 2 trên cần vươn),dat=other | quang=ego,guideline_gap,add_example,Thêm ví dụ calibration BDD25 vào mục 9: hai đầu đèn trên cùng cần vươn cùng pha đều là ego — chỉ là other khi bị ngăn bởi dải phân cách cứng hoặc hàng rào
+BDD18,frame.ego_signal,dat=escalate | quang=out_of_view,guideline_gap,revise_rule,Làm rõ thứ tự bảng frame mục 4: escalate chỉ khi đã có box ego mang màu xung đột; nếu không box được thì dùng out_of_view trước khi xét escalate

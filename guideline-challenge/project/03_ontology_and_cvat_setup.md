@@ -33,15 +33,20 @@ Bảng ontology là **source of truth** cho schema CVAT: `03_cvat_labels.json` p
 
 ## CVAT
 
-- **Phiên bản CVAT** (`make cvat-status`): TODO (điền khi mở CVAT; lớp dùng v2.74.1)
-- **Tên task calibration:** TODO, ví dụ `teamXX-calib-v1`
-- **Guide của task đã dán `02_guideline.md`?** TODO (có / chưa)
+- **Phiên bản CVAT** (`make cvat-status`): v2.74.1
+- **Tên task calibration:** 4changlinhngulam-calib-v1
+- **Guide của task đã dán `02_guideline.md`?** Có — nội dung guideline v1 đã dán vào trường Guide của task calibration
 - **Nhóm dùng Track hay Shape, vì sao:** dùng **Shape**. Ảnh tĩnh không liên tiếp; frame LISA cũng được label độc lập,
   không nối track.
 
 ## Setup test
 
-Một thành viên **chưa tham gia setup** mở task và trả lời bốn câu: label gì, dùng tool nào, gán attribute nào, khi nào
-escalate. Ghi lại ai test và chỗ họ vấp.
+Người test: Hoàng Văn Đạt (chưa tham gia setup CVAT task).
 
-TODO
+Bốn câu trả lời sau khi mở task lần đầu:
+1. **Label gì:** box từng đầu đèn xe cơ giới thấy mặt ô đèn, gắn tag `frame` cho cả ảnh
+2. **Dùng tool nào:** Rectangle (Shape, không dùng Track)
+3. **Gán attribute nào:** `state` (red/yellow/green/unknown), `relevance` (ego/other/unknown) cho mỗi box; `ego_signal` cho tag frame
+4. **Khi nào escalate:** khi có ≥2 box ego mang màu khác nhau, hoặc có box ego/unknown mà không thấy màu rõ
+
+Chỗ vấp: lúc đầu nhầm chọn Track thay vì Shape — cần nhắc rõ trong hướng dẫn rằng task này dùng Shape.
